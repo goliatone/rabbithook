@@ -6,7 +6,7 @@ var ascoltatori = require('ascoltatori');
 
 module.exports = function(app, config){
 
-    ascoltatori.build(config, function (ascoltatore) {
+    ascoltatori.build(config, function (_, ascoltatore) {
         console.log('===> AMQP client CONNECTED');
         app.on('webhook.github.*', function(data){
             console.log('github: publish event');
@@ -17,7 +17,6 @@ module.exports = function(app, config){
             console.log('dockerhub: publish event');
             ascoltatore.publish('rabbithook/dockerhub', data);
         });
-
 
         /*
          * If clients are up then let's say hello
