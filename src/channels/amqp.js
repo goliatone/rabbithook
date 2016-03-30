@@ -9,8 +9,13 @@ module.exports = function(app, config){
     ascoltatori.build(config, function (ascoltatore) {
         console.log('===> AMQP client CONNECTED');
         app.on('webhook.github.*', function(data){
-            console.log('publish event');
-            ascoltatore.publish('webhook-github', data);
+            console.log('github: publish event');
+            ascoltatore.publish('rabbithook/github', data);
+        });
+
+        app.on('webhook.dockerhub.*', function(data){
+            console.log('dockerhub: publish event');
+            ascoltatore.publish('rabbithook/dockerhub', data);
         });
 
 
