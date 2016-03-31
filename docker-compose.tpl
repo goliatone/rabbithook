@@ -6,6 +6,7 @@ rabbithook:
     - DEBUG={{NODE_DEBUG}}
     - NODE_ENV={{NODE_ENV}}
     - NODE_AMQP_ENDPOINT={{NODE_AMQP_ENDPOINT}}
+    - NODE_AMQP_EXCHANGE=wework.{{NODE_ENV}}
   restart: always
   log_opt:
       max-size: "1g"
