@@ -1,7 +1,7 @@
 rabbithook:
   build: .
   hostname: rabbithook-{{NODE_ENV}}
-  command: /opt/rabbithook/node_modules/.bin/pm2 start /opt/rabbithook/bin/www --name "rabbithook" --no-daemon
+  command: /opt/rabbithook/bin/www
   environment:
     - DEBUG={{NODE_DEBUG}}
     - NODE_ENV={{NODE_ENV}}
