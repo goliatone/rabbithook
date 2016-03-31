@@ -8,6 +8,8 @@ module.exports = function(app, config){
             return res.status(400).send();
         }
 
+        console.log('Dockerhub', req.body);
+
         app.emit('webhook.dockerhub.*', req.body);
     });
 };
