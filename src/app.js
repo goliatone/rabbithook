@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.disable('x-powered-by');
 
 require('./handlers/github')(app, config.github);
 require('./channels/amqp')(app, config.amqp);
