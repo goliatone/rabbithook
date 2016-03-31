@@ -1,5 +1,5 @@
 FROM node:5.9.1
-MAINTAINER Emiliano Burgos <emiliano@wework.com>
+MAINTAINER goliatone <hello@goliatone.com>
 
 ENV TARGET_DIR /opt/rabbithook
 
@@ -20,4 +20,4 @@ RUN npm install --quiet --production
 
 EXPOSE 3000
 
-CMD ["/opt/rabbithook/node_modules/.bin/pm2", "start", "/opt/rabbithook/bin/www", "--name", "rabbithook", "--no-daemon"]
+CMD ["/opt/rabbithook/bin/www"]
