@@ -10,6 +10,11 @@ module.exports = function(app, config){
         console.log('===> AMQP client CONNECTED');
         app.on('webhook.github.*', function(data){
             console.log('github: publish event');
+            var topic = [
+                'rabbithook',
+                'github',
+                data.repository.full_name
+            ].join('/');
             ascoltatore.publish('rabbithook/github', data);
         });
 
