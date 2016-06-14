@@ -11,5 +11,7 @@ module.exports = function(app, config){
         console.log('Dockerhub', req.body);
 
         app.emit('webhook.dockerhub.*', req.body);
+
+        res.status(200).send();
     });
 };
