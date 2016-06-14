@@ -13,6 +13,7 @@
     "ejs": "~2.2.3",
     "express": "~4.11.1",
     "express-github-webhook": "^1.0.5",
+    "gextend": "^0.3.0",
     "morgan": "~1.5.1",
     "serve-favicon": "~2.2.0"
   }
