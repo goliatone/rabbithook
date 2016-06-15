@@ -93,3 +93,4 @@ node_modules
 ####################################
 .envset
 docker-compose.yml
+docker-compose.yml.*
