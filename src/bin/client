@@ -22,6 +22,10 @@ ascoltatori.build(config, function (_, ascoltatore) {
         console.log('Dockerhub: amqp event', topic, JSON.stringify(message, null, 4));
     });
 
+    ascoltatore.subscribe('rabbithook/travisci', function(topic, message){
+        console.log('Dockerhub: amqp event', topic, JSON.stringify(message, null, 4));
+    });
+
     ascoltatore.subscribe('rabbithook/initialize', function(topic, message){
         console.log('Connection with server OK √');
      });
