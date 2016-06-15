@@ -15,6 +15,7 @@ WORKDIR $TARGET_DIR
 
 ENV DEBUG rabbithook
 
+#Fix, we npm instll every time :/ 
 COPY src $TARGET_DIR
 RUN npm install --quiet --production
 
