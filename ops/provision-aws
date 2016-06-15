@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# this script will use docker-machine to provision a machine
+# to AWS
+
+E_BADARGS=13
+
+if [ "$#" -lt 2 ];then
+  echo "Usage: `basename $0` <vpc-id> <machine-name> <zone> <type>"
+  exit $E_BADARGS
+fi
+
+ACCESS_KEY_ID="$(./ops/aws-env access-key)"
+SECRET_KEY="$(./ops/aws-env secret-key)"
+ZONE=${3:-"a"}
+TYPE=${4:-""t2.micro""}
+
+docker-machine create --driver amazonec2 \
+--amazonec2-secret-key $SECRET_KEY \
+--amazonec2-access-key $ACCESS_KEY_ID \
+--amazonec2-vpc-id $1 \
+--amazonec2-zone $ZONE \
+--amazonec2-instance-type $TYPE \
+$2
+
+status=$?
+echo -en '\n'
+
+if [ $status -ne "0" ]; then
+  echo "An error occurred"
+fi
