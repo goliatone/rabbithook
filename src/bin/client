@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+'use strict';
+
+var config = {
+    type: 'amqp',
+    json: true,
+    amqp: require('amqp'),
+    exchange: process.env.NODE_AMQP_EXCHANGE || ('wework.'  process.env.NODE_ENV),
+    client: {
+        url: process.env.NODE_AMQP_ENDPOINT
+    }
+};
+
+ascoltatori.build(config, function (_, ascoltatore) {
+    console.log('===> AMQP "client": CONNECTED');
+
+    ascoltatore.subscribe('rabbithook/github', function(topic, message) {
+        console.log('Github: amqp event', topic, JSON.stringify(message, null, 4));
+    });
+
+    ascoltatore.subscribe('rabbithook/dockerhub', function(topic, message){
+        console.log('Dockerhub: amqp event', topic, JSON.stringify(message, null, 4));
+    });
+
+    ascoltatore.subscribe('rabbithook/initialize', function(topic, message){
+        console.log('Connection with server OK √');
+     });
+});
