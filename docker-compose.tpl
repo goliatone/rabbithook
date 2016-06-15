@@ -5,6 +5,7 @@ rabbithook:
   environment:
     - DEBUG={{NODE_DEBUG}}
     - NODE_ENV={{NODE_ENV}}
+    - NODE_GITHUB_SECRET={{NODE_GITHUB_SECRET}}
     - NODE_AMQP_ENDPOINT={{NODE_AMQP_ENDPOINT}}
     - NODE_AMQP_EXCHANGE=wework.{{NODE_ENV}}
   restart: always
