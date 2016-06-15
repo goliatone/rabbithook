@@ -1,6 +1,6 @@
 'use strict';
 
-
+var get = require('../lib/utils').get;
 var ascoltatori = require('ascoltatori');
 
 
@@ -8,14 +8,18 @@ module.exports = function(app, config){
 
     ascoltatori.build(config, function (_, ascoltatore) {
         console.log('===> AMQP client CONNECTED');
-        app.on('webhook.github.*', function(data){
+        app.on('webhook.github.*', function(payload){
             console.log('github: publish event');
+
             var topic = [
                 'rabbithook',
                 'github',
-                data.repository.full_name
-            ].join('/');
-            ascoltatore.publish('rabbithook/github', data);
+                get(payload, 'data.repository.full_name')
+            ].filter(Boolean).join('/');
+
+            console.log('TOPIC', topic);
+
+            ascoltatore.publish('rabbithook/github', payload);
         });
 
         app.on('webhook.dockerhub.*', function(data){
