@@ -1,7 +1,7 @@
 ### RabbitHook
 Transform WebHooks from services like GitHub, Dockerhub, or Travis into AMQP events.
 
-Used with [rabbithook-client] to put together a build pipeline.
+Used with [rabbithook-client][rabbithook-client] to put together a build pipeline.
 Build docker images after pushing to a Github repo, push image to Dockerhub. On Dockerhub updates, update container.
 
 ### TODO:
@@ -10,3 +10,6 @@ Integrate TravisCI
 
 https://www.npmjs.com/package/travisci-webhook/
 https://github.com/chrisjaure/travisci-webhook-handler
+
+
+[rabbithook-client]:https://github.com/goliatone/rabbithook-client
