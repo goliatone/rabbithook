@@ -27,6 +27,11 @@ module.exports = function(app, config){
             ascoltatore.publish('rabbithook/dockerhub', data);
         });
 
+        app.on('webhook.travisci.*', function(data){
+            console.log('travisci: publish event');
+            ascoltatore.publish('rabbithook/travisci', data);
+        });
+
         /*
          * If clients are up then let's say hello
          */
