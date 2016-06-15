@@ -14,7 +14,7 @@ Configuration needs an environment variable with the github secret:
 * NODE_GITHUB_SECRET
 
 Generates the following topic:
-`webhook.github.*`
+`rabbithook/github`
 
 
 #### Dockerhub
@@ -22,7 +22,7 @@ Generates the following topic:
 To read more about how to set up a webhook in Dockerhub, read [this documentation page][dockerhub-doc].
 
 Generates the following topic:
-`webhook.dockerhub.*`
+`rabbithook/dockerhub`
 
 #### TravisCI
 
@@ -32,7 +32,7 @@ Configuration needs an environment variable with the github secret:
 * NODE_TRAVISCI_TOKEN
 
 Generates the following topic:
-`webhook.travisci.*`
+`rabbithook/travisci`
 
 
 ### Configuration
