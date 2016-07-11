@@ -13,16 +13,19 @@ To read more about how to set up a webhook in Github, read [this documentation p
 Configuration needs an environment variable with the github secret:
 * NODE_GITHUB_SECRET
 
-Generates the following topic:
-`rabbithook/github`
+Generates the following AMQP topic:
+`rabbithook.github`
 
+If you are using ascoltatore, the topic is `rabbithook/github`.
 
 #### Dockerhub
 
 To read more about how to set up a webhook in Dockerhub, read [this documentation page][dockerhub-doc].
 
-Generates the following topic:
-`rabbithook/dockerhub`
+Generates the following AMQP topic:
+`rabbithook.dockerhub`
+
+If you are using ascoltatore, the topic is `rabbithook/dockerhub`.
 
 #### TravisCI
 
@@ -31,9 +34,10 @@ To read more about how to set up a webhook in TravisCI, read [this documentation
 Configuration needs an environment variable with the github secret:
 * NODE_TRAVISCI_TOKEN
 
-Generates the following topic:
-`rabbithook/travisci`
+Generates the following AMQP topic:
+`rabbithook.travisci`
 
+If you are using ascoltatore, the topic is `rabbithook/travisci`.
 
 ### Configuration
 
